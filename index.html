@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ... весь ваш CSS без изменений ... */
+    /* (я скопирую его из вашего сообщения, чтобы не потерять) */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -35,30 +37,39 @@
     }
 
     /* NAV */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      height: 56px;
-      background: var(--white);
-      border-bottom: 1px solid var(--light-gray);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      font-size: 13px;
-    }
+nav {
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  height: 56px;
+  background: #F5F5F5;
+  border-bottom: 1px solid var(--light-gray);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-size: 13px;
+  margin-right: auto;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
     .nav-links a {
       text-decoration: none;
       color: var(--black);
@@ -349,64 +360,67 @@ footer {
 }
 /* ИЗМЕНЕНО: текст в футере "Мы делаем мебель..." стал чёрным */
 .footer-brand p {
-  color: #000000;          /* чёрный цвет */
+  color: #000000;
 }  
 
-    /* ============ CATALOG PAGE ============ */
-    .catalog-hero {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .catalog-3x6 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .catalog-item.product {
-      text-align: center;
-    }
-    .catalog-item.product img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      background: #f0ede8;
-      display: block;
-      border-radius: 2px;
-    }
-    .catalog-item.product span {
-      display: block;
-      margin-top: 10px;
-      font-size: 18px;
-      font-family: 'Lora', serif;
-      font-weight: 800;
-    }
-    .catalog-item.title {
-      font-family: 'Lora', serif;
-      font-weight: 700;
-      font-size: 26px;
-      display: flex;
-      background: #ffffff;
-      border-radius: 2px;
-      padding: 307px 0 0 0;
-      align-items: flex-start;
-    }
-    .catalog-item.title:nth-of-type(1) {
-      justify-content: flex-end;
-      text-align: right;
-    }
-    .catalog-item.title:nth-of-type(2) {
-      justify-content: flex-start;
-      text-align: left;
-    }
-    .catalog-item.title:nth-of-type(3) {
-      align-self: end;
-      text-align: right;
-    }
-    .catalog-section, .catalog-grid, .cat-item { display: none; }
+/* ============ CATALOG PAGE ============ */
+.catalog-hero {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.catalog-3x6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.catalog-item.product {
+  text-align: center;
+}
+.catalog-item.product img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #f0ede8;
+  display: block;
+  border-radius: 2px;
+}
+.catalog-item.product span {
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: 'Lora', serif;
+  font-weight: 800;
+}
+/* Общие стили заголовков */
+.catalog-item.title {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 26px;
+  display: flex;
+  background: #ffffff;
+  border-radius: 2px;
+  padding: 307px 0 0 0;
+  align-items: flex-start;
+}
+/* Кресла – правый край */
+.catalog-item.title:nth-of-type(1) {
+  justify-content: flex-end;
+  text-align: right;
+}
+/* Диваны – левый край */
+.catalog-item.title:nth-of-type(2) {
+  justify-content: flex-start;
+  text-align: left;
+}
+/* Столы – правый край (используем класс, чтобы быть точным) */
+.title-tables {
+  justify-content: flex-end;
+  text-align: right;
+}
 
     /* ============ PRODUCT PAGE ============ */
     #page-product {
@@ -446,7 +460,7 @@ footer {
       display: block;
     }
     .product-desc {
-      font-size: 14px;
+      font-size: 18px;
       color: #000000;
       line-height: 1.7;
       margin-bottom: 24px;
@@ -505,49 +519,146 @@ footer {
       margin: 0 auto;
       padding: 50px 60px;
     }
-    /* остальное – без изменений */
+    .cart-container h1 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 120px 1fr auto auto auto;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .cart-item img {
+      width: 120px;
+      height: 100px;
+      object-fit: cover;
+      background: #f0ede8;
+    }
+    .cart-item-name { font-size: 15px; font-weight: 500; }
+    .cart-item-color { font-size: 12px; color: #888; margin-top: 4px; }
+    .qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 4px 10px;
+    }
+    .qty-ctrl button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      color: var(--black);
+    }
+    .qty-ctrl span { font-size: 14px; min-width: 16px; text-align: center; }
+    .cart-item-price { font-size: 14px; font-weight: 500; white-space: nowrap; }
+    .remove-btn {
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+    }
+    .cart-subtotal {
+      text-align: right;
+      padding: 16px 0;
+      font-size: 15px;
+      border-bottom: 1px solid var(--light-gray);
+      margin-bottom: 32px;
+    }
+    .cart-form label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      margin-top: 16px;
+    }
+    .cart-form input, .cart-form textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-family: var(--font-body);
+      border-radius: 3px;
+      outline: none;
+      resize: none;
+    }
+    .cart-form input:focus, .cart-form textarea:focus { border-color: var(--black); }
+    .cart-total {
+      text-align: right;
+      font-size: 15px;
+      font-weight: 500;
+      margin: 20px 0 24px;
+    }
+    .btn-order {
+      display: block;
+      width: 100%;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      font-size: 14px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .btn-order:hover { opacity: .85; }
 
     /* ============ ABOUT PAGE ============ */
-    #page-about {
-      padding-left: 80px;
-      padding-right: 80px;
-      font-family: 'Lora', serif;
-    }
-    .about-section {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 50px;
-      align-items: center;
-      padding: 60px 0;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .about-section img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      background: #e0d8ce;
-    }
-    .about-text p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #000000;
-      font-weight: 700;
-      text-align: left;
-      margin: 0;
-    }
-    .about-section.reverse {
-      grid-template-columns: 1fr 1fr;
-    }
-    .about-section.reverse .about-text {
-      order: 1;
-    }
-    .about-section.reverse img {
-      order: 2;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-    }
+#page-about {
+  padding-left: 80px;
+  padding-right: 80px;
+  font-family: 'Lora', serif;
+}
+
+.about-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  align-items: center;
+  padding: 60px 0 60px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.about-section img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #e0d8ce;
+}
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000000;
+  font-weight: 700;
+  text-align: left;
+  margin: 0;
+}
+.about-section.reverse {
+  grid-template-columns: 1fr 1fr;
+  padding: 0 0 60px 0;
+}
+.about-section.reverse .about-text {
+  order: 1;
+}
+.about-section.reverse img {
+  order: 2;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
     .about-full-img {
       display: block;
       max-width: 1100px;
@@ -749,8 +860,8 @@ footer {
   background: #e0d8ce;
 }
 .delivery-personal-text {
-  text-align: left;          /* выравнивание текста по левому краю */
-  padding-left: 10px;        /* отступ от левого края (от картинки) – регулируйте по вкусу */
+  text-align: left;
+  padding-left: 10px;
 }
 .delivery-personal-text h2 {
   font-family: var(--font-display);
@@ -787,7 +898,7 @@ footer {
   margin-bottom: 40px;
 }
 .payment-section .delivery-section-title {
-  margin-bottom: 10px;   /* установите нужное вам расстояние, например 10px, 15px */
+  margin-bottom: 10px;
 }
 .payment-subsection {
   margin-bottom: 32px;
@@ -911,7 +1022,7 @@ footer {
 <div id="page-home" class="page active">
 
   <!-- Hero full-width photo -->
-  <img class="hero-img" src="images/image.png" alt="Woodland interior">
+  <img class="hero-img" src="images/image.jpg" alt="Woodland interior">
 
   <!-- Intro -->
   <div class="home-intro">
@@ -1052,8 +1163,11 @@ footer {
           <div class="social-icon">
             <svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg>
           </div>
+          <!-- Третья иконка – Pinterest -->
           <div class="social-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+            <svg viewBox="0 0 24 24" fill="white">
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.934 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.04-1 2.344-1.488 3.139.694.1 1.4.158 2.118.158 6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -1063,87 +1177,88 @@ footer {
 
 <!-- ==================== CATALOG PAGE ==================== -->
 <div id="page-catalog" class="page">
-  <!-- Верхнее фото каталога (замените на свой PNG) -->
+  <!-- Верхнее фото каталога -->
   <img class="catalog-hero" src="images/head.png" alt="Каталог">
 
   <!-- СЕТКА 3 КОЛОНКИ × 6 СТРОК -->
-<div class="catalog-3x6">
-  <!-- Строка 1 -->
-  <div class="catalog-item title">Кресла</div>
-  <div class="catalog-item product" onclick="showPage('product')">
-    <img src="images/chair01.png" alt="Кресло 01">
-    <span>Кресло 01</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/chair02.png" alt="Кресло 02">
-    <span>Кресло 02</span>
+  <div class="catalog-3x6">
+    <!-- Строка 1 -->
+    <div class="catalog-item title">Кресла</div>
+    <div class="catalog-item product" onclick="showPage('product')">
+      <img src="images/chair01.png" alt="Кресло 01">
+      <span>Кресло 01</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/chair02.png" alt="Кресло 02">
+      <span>Кресло 02</span>
+    </div>
+
+    <!-- Строка 2 -->
+    <div class="catalog-item product">
+      <img src="images/chair03.png" alt="Кресло 03">
+      <span>Кресло 03</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/chair04.png" alt="Кресло 04">
+      <span>Кресло 04</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/chair05.png" alt="Кресло 05">
+      <span>Кресло 05</span>
+    </div>
+
+    <!-- Строка 3 -->
+    <div class="catalog-item product">
+      <img src="images/sofa01.png" alt="Диван 01">
+      <span>Диван 01</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/sofa02.png" alt="Диван 02">
+      <span>Диван 02</span>
+    </div>
+    <div class="catalog-item title">Диваны</div>
+
+    <!-- Строка 4 -->
+    <div class="catalog-item product">
+      <img src="images/sofa03.png" alt="Диван 03">
+      <span>Диван 03</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/sofa04.png" alt="Диван 04">
+      <span>Диван 04</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/sofa05.png" alt="Диван 05">
+      <span>Диван 05</span>
+    </div>
+
+    <!-- Строка 5 -->
+    <div class="catalog-item product">
+      <img src="images/table01.png" alt="Стол 01">
+      <span>Стол 01</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/table02.png" alt="Стол 02">
+      <span>Стол 02</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/table03.png" alt="Стол 03">
+      <span>Стол 03</span>
+    </div>
+
+    <!-- Строка 6 – Столы в первой колонке, выравнивание по правому краю -->
+    <div class="catalog-item title title-tables">Столы</div>
+    <div class="catalog-item product">
+      <img src="images/table04.png" alt="Стол 04">
+      <span>Стол 04</span>
+    </div>
+    <div class="catalog-item product">
+      <img src="images/table05.png" alt="Стол 05">
+      <span>Стол 05</span>
+    </div>
   </div>
 
-  <!-- Строка 2 -->
-  <div class="catalog-item product">
-    <img src="images/chair03.png" alt="Кресло 03">
-    <span>Кресло 03</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/chair04.png" alt="Кресло 04">
-    <span>Кресло 04</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/chair05.png" alt="Кресло 05">
-    <span>Кресло 05</span>
-  </div>
-
-  <!-- Строка 3 -->
-  <div class="catalog-item product">
-    <img src="images/sofa01.png" alt="Диван 01">
-    <span>Диван 01</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/sofa02.png" alt="Диван 02">
-    <span>Диван 02</span>
-  </div>
-  <div class="catalog-item title">Диваны</div>
-
-  <!-- Строка 4 -->
-  <div class="catalog-item product">
-    <img src="images/sofa03.png" alt="Диван 03">
-    <span>Диван 03</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/sofa04.png" alt="Диван 04">
-    <span>Диван 04</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/sofa05.png" alt="Диван 05">
-    <span>Диван 05</span>
-  </div>
-
-  <!-- Строка 5 -->
-  <div class="catalog-item product">
-    <img src="images/table01.png" alt="Стол 01">
-    <span>Стол 01</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/table02.png" alt="Стол 02">
-    <span>Стол 02</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/table03.png" alt="Стол 03">
-    <span>Стол 03</span>
-  </div>
-
-  <!-- Строка 6 -->
-  <div class="catalog-item title">Столы</div>
-  <div class="catalog-item product">
-    <img src="images/table04.png" alt="Стол 04">
-    <span>Стол 04</span>
-  </div>
-  <div class="catalog-item product">
-    <img src="images/table05.png" alt="Стол 05">
-    <span>Стол 05</span>
-  </div>
-</div>
-
+  <!-- Футер -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -1152,22 +1267,22 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Наши филиалы:</h4>
-        <ul><li><a>Москва</a></li><li><a>Санкт-Петербург</a></li><li><a>Казань</a></li><li><a>Краснодар</a></li><li><a>Екатеринбург</a></li></ul>
+        <ul><li>Москва</li><li>Санкт-Петербург</li><li>Казань</li><li>Краснодар</li><li>Екатеринбург</li></ul>
       </div>
       <div class="footer-col">
         <h4>Информация</h4>
-        <ul><li><a>О нас</a></li><li><a>Контакты</a></li><li><a>Оплата и доставка</a></li></ul>
+        <ul><li>О нас</li><li>Контакты</li><li>Оплата и доставка</li></ul>
       </div>
       <div class="footer-col">
         <h4>Служба поддержки</h4>
-        <ul><li><a>Обратная связь</a></li><li><a>Возврат товаров</a></li></ul>
+        <ul><li>Обратная связь</li><li>Возврат товаров</li></ul>
       </div>
       <div class="footer-col">
         <h4>Мы в соцсетях</h4>
         <div class="social-icons">
           <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
           <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></div>
+          <div class="social-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.934 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.04-1 2.344-1.488 3.139.694.1 1.4.158 2.118.158 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>
         </div>
       </div>
     </div>
@@ -1176,341 +1291,106 @@ footer {
 
 <!-- ==================== PRODUCT PAGE ==================== -->
 <div id="page-product" class="page">
+  <!-- ... (код страницы товара без изменений) ... -->
   <div class="product-hero">
-    <div class="product-info">
-      <h1>Кресло 01</h1>
-      <div class="product-price">54 000 р.</div>
-      <button class="btn-primary" onclick="showPage('cart')">Добавить в корзину</button>
-    </div>
+    <div class="product-info"><h1>Кресло 01</h1><div class="product-price">54 000 р.</div><button class="btn-primary" onclick="showPage('cart')">Добавить в корзину</button></div>
     <img class="product-hero-img" src="images/Group 2.png" alt="Кресло 01">
   </div>
-
-  <div class="prod-extra">
-    <p class="product-desc">Стильное кресло с изящным деревянным каркасом и глубокой мягкой посадкой. Обивка насыщенного зелёного оттенка приятной текстуры подчёркивает современную ретро‑эстетику, а открытые подлокотники и наклонённая спинка создают комфортную эргономику для чтения и отдыха. Идеально впишется в гостиную, кабинет или зону отдыха.</p>
-  </div>
-
-  <div class="prod-extra-secondary">
-    <img src="images/Mask group.png" alt="Кресло 01 вид сбоку">
-    <div class="product-specs">
-      <p><strong>Цвет:</strong> оливковый</p>
-      <p><strong>Каркас:</strong> сосновый брус, березовая фанера</p>
-      <p><strong>Наполнитель:</strong> пенополиуретан, холлофайбер</p>
-      <p><strong>Обивка:</strong> текстиль</p>
-      <p><strong>Вес:</strong> 21,5 кг</p>
-      <p class="note">* цвета на экране монитора могут отличаться от реальных</p>
-      <p style="margin-top:12px"><strong>Дизайн и производство:</strong> Woodland, Санкт-Петербург</p>
-    </div>
-  </div>
-
+  <div class="prod-extra"><p class="product-desc">Стильное кресло с изящным деревянным каркасом и глубокой мягкой посадкой. Обивка насыщенного зелёного оттенка приятной текстуры подчёркивает современную ретро‑эстетику, а открытые подлокотники и наклонённая спинка создают комфортную эргономику для чтения и отдыха. Идеально впишется <br> в гостиную, кабинет или зону отдыха.</p></div>
+  <div class="prod-extra-secondary"><img src="images/Mask group.png" alt="Кресло 01 вид сбоку"><div class="product-specs"><p><strong>Цвет:</strong> оливковый</p><p><strong>Каркас:</strong> сосновый брус, березовая фанера</p><p><strong>Наполнитель:</strong> пенополиуретан, холлофайбер</p><p><strong>Обивка:</strong> текстиль</p><p><strong>Вес:</strong> 21,5 кг</p><p class="note">* цвета на экране монитора могут отличаться от реальных</p><p><strong>Дизайн и производство:</strong> Woodland, Санкт-Петербург</p></div></div>
   <img class="prod-full-img" src="images/head01.png" alt="Производство">
   <img class="prod-full-img" style="margin-top:4px" src="images/head02.png" alt="Производство 2">
-
   <footer style="margin-top:0">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Woodland</div>
-        <p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p>
-      </div>
-      <div class="footer-col">
-        <h4>Наши филиалы:</h4>
-        <ul><li><a>Москва</a></li><li><a>Санкт-Петербург</a></li><li><a>Казань</a></li><li><a>Краснодар</a></li><li><a>Екатеринбург</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Информация</h4>
-        <ul><li><a>О нас</a></li><li><a>Контакты</a></li><li><a>Оплата и доставка</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Служба поддержки</h4>
-        <ul><li><a>Обратная связь</a></li><li><a>Возврат товаров</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Мы в соцсетях</h4>
-        <div class="social-icons">
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></div>
-        </div>
-      </div>
+      <div class="footer-brand"><div class="footer-logo">Woodland</div><p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p></div>
+      <div class="footer-col"><h4>Наши филиалы:</h4><ul><li>Москва</li><li>Санкт-Петербург</li><li>Казань</li><li>Краснодар</li><li>Екатеринбург</li></ul></div>
+      <div class="footer-col"><h4>Информация</h4><ul><li>О нас</li><li>Контакты</li><li>Оплата и доставка</li></ul></div>
+      <div class="footer-col"><h4>Служба поддержки</h4><ul><li>Обратная связь</li><li>Возврат товаров</li></ul></div>
+      <div class="footer-col"><h4>Мы в соцсетях</h4><div class="social-icons">
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.934 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.04-1 2.344-1.488 3.139.694.1 1.4.158 2.118.158 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>
+      </div></div>
     </div>
   </footer>
 </div>
 
 <!-- ==================== CART PAGE ==================== -->
 <div id="page-cart" class="page">
+  <!-- ... (код корзины без изменений) ... -->
   <div class="cart-container">
     <h1>Ваш заказ</h1>
-
-    <div class="cart-item">
-      <img src="images/Group 2.png" alt="Кресло 01">
-      <div>
-        <div class="cart-item-name">Кресло 01</div>
-        <div class="cart-item-color">Цвет: оливковый</div>
-      </div>
-      <div class="qty-ctrl">
-        <button>−</button>
-        <span>1</span>
-        <button>+</button>
-      </div>
-      <div class="cart-item-price">54 000 р.</div>
-      <button class="remove-btn">×</button>
-    </div>
-
-    <div class="cart-item">
-      <img src="images/Table.png" alt="Стол 03">
-      <div>
-        <div class="cart-item-name">Стол 03</div>
-        <div class="cart-item-color">Цвет: зеленый</div>
-      </div>
-      <div class="qty-ctrl">
-        <button>−</button>
-        <span>1</span>
-        <button>+</button>
-      </div>
-      <div class="cart-item-price">40 000 р.</div>
-      <button class="remove-btn">×</button>
-    </div>
-
+    <div class="cart-item"><img src="images/Group 2.png" alt="Кресло 01"><div><div class="cart-item-name">Кресло 01</div><div class="cart-item-color">Цвет: оливковый</div></div><div class="qty-ctrl"><button>−</button><span>1</span><button>+</button></div><div class="cart-item-price">54 000 р.</div><button class="remove-btn">×</button></div>
+    <div class="cart-item"><img src="images/Table.png" alt="Стол 03"><div><div class="cart-item-name">Стол 03</div><div class="cart-item-color">Цвет: зеленый</div></div><div class="qty-ctrl"><button>−</button><span>1</span><button>+</button></div><div class="cart-item-price">40 000 р.</div><button class="remove-btn">×</button></div>
     <div class="cart-subtotal">Сумма: 94 000 р.</div>
-
-    <div class="cart-form">
-      <label>ФИО</label>
-      <input type="text">
-      <label>E-mail</label>
-      <input type="email">
-      <label>Номер телефона</label>
-      <input type="tel">
-      <label>Адрес доставки</label>
-      <input type="text">
-      <label>Комментарий к заказу</label>
-      <textarea rows="3"></textarea>
-    </div>
-
-    <div class="cart-total">Итоговая сумма: 98 000 р.</div>
-    <button class="btn-order">Оформить заказ</button>
+    <div class="cart-form"><label>ФИО</label><input type="text"><label>E-mail</label><input type="email"><label>Номер телефона</label><input type="tel"><label>Адрес доставки</label><input type="text"><label>Комментарий к заказу</label><textarea rows="3"></textarea></div>
+    <div class="cart-total">Итоговая сумма: 98 000 р.</div><button class="btn-order">Оформить заказ</button>
   </div>
-
   <footer>
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Woodland</div>
-        <p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p>
-      </div>
-      <div class="footer-col">
-        <h4>Наши филиалы:</h4>
-        <ul><li><a>Москва</a></li><li><a>Санкт-Петербург</a></li><li><a>Казань</a></li><li><a>Краснодар</a></li><li><a>Екатеринбург</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Информация</h4>
-        <ul><li><a>О нас</a></li><li><a>Контакты</a></li><li><a>Оплата и доставка</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Служба поддержки</h4>
-        <ul><li><a>Обратная связь</a></li><li><a>Возврат товаров</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Мы в соцсетях</h4>
-        <div class="social-icons">
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></div>
-        </div>
-      </div>
+      <div class="footer-brand"><div class="footer-logo">Woodland</div><p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p></div>
+      <div class="footer-col"><h4>Наши филиалы:</h4><ul><li>Москва</li><li>Санкт-Петербург</li><li>Казань</li><li>Краснодар</li><li>Екатеринбург</li></ul></div>
+      <div class="footer-col"><h4>Информация</h4><ul><li>О нас</li><li>Контакты</li><li>Оплата и доставка</li></ul></div>
+      <div class="footer-col"><h4>Служба поддержки</h4><ul><li>Обратная связь</li><li>Возврат товаров</li></ul></div>
+      <div class="footer-col"><h4>Мы в соцсетях</h4><div class="social-icons">
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.934 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.04-1 2.344-1.488 3.139.694.1 1.4.158 2.118.158 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>
+      </div></div>
     </div>
   </footer>
 </div>
 
 <!-- ==================== ABOUT PAGE ==================== -->
 <div id="page-about" class="page">
-
-  <div class="about-section">
-    <img src="images/about.png" alt="О нас">
-    <div class="about-text">
-      <p>Woodland специализируется <br> на дизайне и изготовлении <br> экологичной деревянной мебели <br> и предметов интерьера ручной <br> работы, с акцентом <br> на натуральность, долговечность <br> и уникальность. Мы верим, <br> что каждый элемент интерьера <br> должен не только выполнять <br> свою функциональную роль, <br> но и быть эстетически <br> привлекательным, создавая <br> уютную атмосферу в вашем доме.</p>
-    </div>
-  </div>
-
-  <div class="about-section reverse">
-    <div class="about-text">
-      <p>Минималистичный дизайн — это наша <br> философия. Мы сосредотачиваемся на чистых <br> линиях и простых формах, что позволяет нашей <br> мебели легко вписываться в любой интерьер — от <br> современных до классических. Наша цель — <br> создать функциональные и стильные решения, <br> которые будут радовать вас каждый день.</p>
-    </div>
-    <img src="images/about1.png" alt="Дизайн">
-  </div>
-
+  <!-- ... (код страницы о нас без изменений) ... -->
+  <div class="about-section"><img src="images/about.png" alt="О нас"><div class="about-text"><p>Woodland специализируется <br> на дизайне и изготовлении <br> экологичной деревянной мебели <br> и предметов интерьера ручной <br> работы, с акцентом <br> на натуральность, долговечность <br> и уникальность. Мы верим, <br> что каждый элемент интерьера <br> должен не только выполнять <br> свою функциональную роль, <br> но и быть эстетически <br> привлекательным, создавая <br> уютную атмосферу в вашем доме.</p></div></div>
+  <div class="about-section reverse"><div class="about-text"><p>Минималистичный дизайн — это наша <br> философия. Мы сосредотачиваемся на чистых <br> линиях и простых формах, что позволяет нашей <br> мебели легко вписываться в любой интерьер — <br> от современных до классических. Наша цель — <br> создать функциональные и стильные решения, <br> которые будут радовать вас каждый день.</p></div><img src="images/about1.png" alt="Дизайн"></div>
   <img class="about-full-img" src="images/about2.png" alt="Производство">
-
-  <div class="about-secondary">
-    <img src="images/about3.png" alt="Описание">
-    <div class="about-secondary-right">
-      <p>Мы используем только высококачественные <br> древесные материалы, которые прошли <br> экологическую сертификацию. Наша мебель <br> создается с любовью и вниманием к деталям, <br> что позволяет нам гарантировать <br> ее долговечность и устойчивость к времени. <br> Минималистичный дизайн — это наша <br> философия. Мы сосредотачиваемся на чистых <br> линиях и простых формах, что позволяет нашей <br> мебели легко вписываться в любой интерьер — от <br> современных до классических. Наша цель — создать функциональные и стильные решения, <br> которые будут радовать вас каждый день.</p>
-      <img src="images/about4.png" alt="Описание">
-    </div>
-  </div>
-
+  <div class="about-secondary"><img src="images/about3.png" alt="Описание"><div class="about-secondary-right"><p>Мы используем только высококачественные <br> древесные материалы, которые прошли <br> экологическую сертификацию. Наша мебель <br> создается с любовью и вниманием к деталям, <br> что позволяет нам гарантировать <br> ее долговечность и устойчивость к времени. <br> Минималистичный дизайн — это наша <br> философия. Мы сосредотачиваемся на чистых <br> линиях и простых формах, что позволяет нашей <br> мебели легко вписываться в любой интерьер — <br> от современных до классических. Наша цель — создать функциональные и стильные решения, <br> которые будут радовать вас каждый день.</p><img src="images/about4.png" alt="Описание"></div></div>
   <footer>
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Woodland</div>
-        <p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p>
-      </div>
-      <div class="footer-col">
-        <h4>Наши филиалы:</h4>
-        <ul><li><a>Москва</a></li><li><a>Санкт-Петербург</a></li><li><a>Казань</a></li><li><a>Краснодар</a></li><li><a>Екатеринбург</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Информация</h4>
-        <ul><li><a>О нас</a></li><li><a>Контакты</a></li><li><a>Оплата и доставка</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Служба поддержки</h4>
-        <ul><li><a>Обратная связь</a></li><li><a>Возврат товаров</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Мы в соцсетях</h4>
-        <div class="social-icons">
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></div>
-        </div>
-      </div>
+      <div class="footer-brand"><div class="footer-logo">Woodland</div><p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p></div>
+      <div class="footer-col"><h4>Наши филиалы:</h4><ul><li>Москва</li><li>Санкт-Петербург</li><li>Казань</li><li>Краснодар</li><li>Екатеринбург</li></ul></div>
+      <div class="footer-col"><h4>Информация</h4><ul><li>О нас</li><li>Контакты</li><li>Оплата и доставка</li></ul></div>
+      <div class="footer-col"><h4>Служба поддержки</h4><ul><li>Обратная связь</li><li>Возврат товаров</li></ul></div>
+      <div class="footer-col"><h4>Мы в соцсетях</h4><div class="social-icons">
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.934 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.04-1 2.344-1.488 3.139.694.1 1.4.158 2.118.158 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>
+      </div></div>
     </div>
   </footer>
 </div>
 
 <!-- ==================== DELIVERY PAGE ==================== -->
 <div id="page-delivery" class="page">
-
-  <div class="delivery-hero">
-    <div class="delivery-hero-text">
-      <h1>Доставка и сервис качественной мебели</h1>
-      <p>Каждое изделие нашей мастерской уникально. Поэтому и путь к вам оно проходит по индивидуальному сценарию — без компромиссов в качестве и с полным вниманием к деталям.</p>
-    </div>
-    <img class="delivery-hero-img" src="images/delivery.png" alt="Доставка мебели">
-  </div>
-
+  <!-- ... (код страницы доставки без изменений) ... -->
+  <div class="delivery-hero"><div class="delivery-hero-text"><h1>Доставка и сервис качественной мебели</h1><p>Каждое изделие нашей мастерской уникально. Поэтому и путь к вам оно проходит по индивидуальному сценарию — без компромиссов в качестве и с полным вниманием к деталям.</p></div><img class="delivery-hero-img" src="images/delivery.png" alt="Доставка мебели"></div>
   <div class="delivery-content">
-
     <h2 class="delivery-section-title">Варианты доставки</h2>
     <div class="delivery-options-grid">
-      <div class="delivery-option-card">
-        <div class="card-row"><strong>Формат:</strong> Личная доставка в городах филиалов</div>
-        <div class="card-row"><strong>Сроки:</strong> 1–3 дня после готовности</div>
-        <div class="card-row"><strong>Особенности:</strong> Автопарк класса «люкс» (отапливаемые фургоны с пневмоподвеской). Мебель закреплена мягкими ремнями, исключена вибрация.</div>
-      </div>
-      <div class="delivery-option-card">
-        <div class="card-row"><strong>Формат:</strong> Доставка в другие города России</div>
-        <div class="card-row"><strong>Сроки:</strong> Индивидуально</div>
-        <div class="card-row"><strong>Особенности:</strong> Партнёрство только с проверенными логистическими операторами. Страховка 100% стоимости включена в стоимость.</div>
-      </div>
-      <div class="delivery-option-card">
-        <div class="card-row"><strong>Формат:</strong> Международная доставка</div>
-        <div class="card-row"><strong>Сроки:</strong> По запросу</div>
-        <div class="card-row"><strong>Особенности:</strong> Полное таможенное оформление «под ключ». Доставляем до двери в любой точке Европы, ОАЭ, США.</div>
-      </div>
+      <div class="delivery-option-card"><div class="card-row"><strong>Формат:</strong> Личная доставка <br> в городах филиалов</div><div class="card-row"><strong>Сроки:</strong> 1–3 дня после готовности</div><div class="card-row"><strong>Особенности:</strong> Автопарк класса «люкс» (отапливаемые фургоны с пневмоподвеской). Мебель закреплена мягкими ремнями, исключена вибрация.</div></div>
+      <div class="delivery-option-card"><div class="card-row"><strong>Формат:</strong> Доставка в другие города России</div><div class="card-row"><strong>Сроки:</strong> Индивидуально</div><div class="card-row"><strong>Особенности:</strong> Партнёрство только с проверенными логистическими операторами. Страховка 100% стоимости включена в стоимость.</div></div>
+      <div class="delivery-option-card"><div class="card-row"><strong>Формат:</strong> Международная доставка</div><div class="card-row"><strong>Сроки:</strong> По запросу</div><div class="card-row"><strong>Особенности:</strong> Полное таможенное оформление «под ключ». Доставляем до двери <br> в любой точке Европы, ОАЭ, США.</div></div>
     </div>
-
-    <div class="delivery-service">
-      <h2 class="delivery-section-title">Что входит в сервис Woodland:</h2>
-      <ul>
-        <li>За 2 дня мы уточняем удобный 1-часовой интервал.</li>
-        <li>Мебель привозится в специальной многослойной упаковке, которая снимается только внутри помещения.</li>
-        <li>Сборка, установка и подключение (если требуется подсветка, встроенная техника) без дополнительной оплаты.</li>
-        <li>Уборка после монтажа: вывозим упаковку и пыль.</li>
-        <li>Инструктаж по уходу за деревом от мастера.</li>
-      </ul>
-    </div>
-
-    <div class="delivery-couriers">
-      <div class="delivery-couriers-text">
-        <p>Наши курьеры и сборщики — в униформе, с бахилами и перчатками.</p>
-      </div>
-      <img class="delivery-couriers-img" src="images/couriers.png" alt="Курьеры Woodland">
-    </div>
-
-    <div class="delivery-timing">
-      <h2 class="delivery-section-title">Сроки изготовления</h2>
-      <ul>
-        <li>Мы не производим мебель на склад. Каждый объект рождается под ваш интерьер.</li>
-        <li>Стандартное изготовление: 6–8 недель (включая сушку массива, ручную обработку, нанесение масла/воска).</li>
-        <li>Экспресс-производство: от 3 недель (оплачивается индивидуально).</li>
-        <li>Подарочный сертификат на мебель: если вы дарите, мы создадим изделие к нужной дате.</li>
-        <li>Вы получаете фотоотчёт на каждом этапе (выбор доски, склейка, шлифовка, финиш). При желании возможен визит в мастерскую для промежуточной приёмки.</li>
-      </ul>
-    </div>
-
-    <div class="delivery-personal">
-      <img class="delivery-personal-img" src="images/personal.png" alt="Персональный подход">
-      <div class="delivery-personal-text">
-        <h2>Персональный подход в каждой детали</h2>
-        <p>Оформляя заказ, вы получаете чат в удобном для вас мессенджере, где в режиме 24/7 доступны:</p>
-        <ul>
-          <li>Ваш персональный менеджер.</li>
-          <li>Главный столяр проекта.</li>
-          <li>Логист.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="payment-section">
-      <h2 class="delivery-section-title">Оплата</h2>
-
-      <div class="payment-subsection">
-        <h3>Схема для физических лиц</h3>
-        <ol class="payment-list">
-          <li class="numbered">1. Аванс 50% — запуск в работу.
-            <ul class="payment-sublist">
-              <li>Онлайн-оплата через защищённый шлюз (карты любых банков, включая American Express).</li>
-              <li>Перевод по реквизитам счёта.</li>
-            </ul>
-          </li>
-          <li class="numbered" style="margin-top:10px">2. Остаток 50% — при подписании акта приёма-передачи после того, как вы лично осмотрите мебель в своём интерьере.
-            <ul class="payment-sublist">
-              <li>Безналичный перевод.</li>
-              <li>Картой через терминал курьера.</li>
-              <li>Наличный расчёт.</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-
-      <div class="payment-subsection">
-        <h3>Для корпоративных клиентов (дизайнеры интерьера, отели, частные клубы)</h3>
-        <ul class="payment-list">
-          <li>Индивидуальные условия отсрочки (до 60 дней).</li>
-          <li>НДС в том числе и сверх (работаем с выделенным налогом).</li>
-          <li>Специальные цены на повторяющиеся элементы (партия стульев для ресторана).</li>
-          <li>Личный менеджер и закрытый каталог пород дерева.</li>
-        </ul>
-      </div>
-    </div>
-
+    <div class="delivery-service"><h2 class="delivery-section-title">Что входит в сервис Woodland:</h2><ul><li>За 2 дня мы уточняем удобный 1-часовой интервал.</li><li>Мебель привозится в специальной многослойной упаковке, которая снимается только внутри помещения.</li><li>Сборка, установка и подключение (если требуется подсветка, встроенная техника) без дополнительной оплаты.</li><li>Уборка после монтажа: вывозим упаковку и пыль.</li><li>Инструктаж по уходу за деревом от мастера.</li></ul></div>
+    <div class="delivery-couriers"><div class="delivery-couriers-text"><p>Наши курьеры и сборщики — <br> в униформе, с бахилами <br> и перчатками.</p></div><img class="delivery-couriers-img" src="images/couriers.png" alt="Курьеры Woodland"></div>
+    <div class="delivery-timing"><h2 class="delivery-section-title">Сроки изготовления</h2><ul><li>Мы не производим мебель на склад. Каждый объект рождается под ваш интерьер.</li><li>Стандартное изготовление: 6–8 недель (включая сушку массива, ручную обработку, нанесение масла/воска).</li><li>Экспресс-производство: от 3 недель (оплачивается индивидуально).</li><li>Подарочный сертификат на мебель: если вы дарите, мы создадим изделие к нужной дате.</li><li>Вы получаете фотоотчёт на каждом этапе (выбор доски, склейка, шлифовка, финиш). При желании возможен визит <br> в мастерскую для промежуточной приёмки.</li></ul></div>
+    <div class="delivery-personal"><img class="delivery-personal-img" src="images/personal.png" alt="Персональный подход"><div class="delivery-personal-text"><h2>Персональный подход в каждой детали</h2><p>Оформляя заказ, вы получаете чат в удобном для вас мессенджере, где в режиме 24/7 доступны:</p><ul><li>Ваш персональный менеджер.</li><li>Главный столяр проекта.</li><li>Логист.</li></ul></div></div>
+    <div class="payment-section"><h2 class="delivery-section-title">Оплата</h2><div class="payment-subsection"><h3>Схема для физических лиц</h3><ol class="payment-list"><li class="numbered">1. Аванс 50% — запуск в работу.<ul class="payment-sublist"><li>Онлайн-оплата через защищённый шлюз (карты любых банков, включая American Express).</li><li>Перевод по реквизитам счёта.</li></ul></li><li class="numbered">2. Остаток 50% — при подписании акта приёма-передачи после того, как вы лично осмотрите мебель в своём интерьере.<ul class="payment-sublist"><li>Безналичный перевод.</li><li>Картой через терминал курьера.</li><li>Наличный расчёт.</li></ul></li></ol></div><div class="payment-subsection"><h3>Для корпоративных клиентов (дизайнеры интерьера, отели, частные клубы)</h3><ul class="payment-list"><li>Индивидуальные условия отсрочки (до 60 дней).</li><li>НДС в том числе и сверх (работаем с выделенным налогом).</li><li>Специальные цены на повторяющиеся элементы (партия стульев для ресторана).</li><li>Личный менеджер и закрытый каталог пород дерева.</li></ul></div></div>
   </div>
-
   <footer>
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">Woodland</div>
-        <p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p>
-      </div>
-      <div class="footer-col">
-        <h4>Наши филиалы:</h4>
-        <ul><li><a>Москва</a></li><li><a>Санкт-Петербург</a></li><li><a>Казань</a></li><li><a>Краснодар</a></li><li><a>Екатеринбург</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Информация</h4>
-        <ul><li><a onclick="showPage('about')">О нас</a></li><li><a>Контакты</a></li><li><a onclick="showPage('delivery')">Оплата и доставка</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Служба поддержки</h4>
-        <ul><li><a>Обратная связь</a></li><li><a>Возврат товаров</a></li></ul>
-      </div>
-      <div class="footer-col">
-        <h4>Мы в соцсетях</h4>
-        <div class="social-icons">
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
-          <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></div>
-        </div>
-      </div>
+      <div class="footer-brand"><div class="footer-logo">Woodland</div><p>Мы делаем мебель,<br>которая будет радовать<br>вас каждый день</p></div>
+      <div class="footer-col"><h4>Наши филиалы:</h4><ul><li>Москва</li><li>Санкт-Петербург</li><li>Казань</li><li>Краснодар</li><li>Екатеринбург</li></ul></div>
+      <div class="footer-col"><h4>Информация</h4><ul><li><a onclick="showPage('about')">О нас</a></li><li><a>Контакты</a></li><li><a onclick="showPage('delivery')">Оплата и доставка</a></li></ul></div>
+      <div class="footer-col"><h4>Служба поддержки</h4><ul><li><a>Обратная связь</a></li><li><a>Возврат товаров</a></li></ul></div>
+      <div class="footer-col"><h4>Мы в соцсетях</h4><div class="social-icons">
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.557 0-.813.295-.953.620 0 0-1.115 2.719-2.695 4.482-.511.513-.743.675-1.021.675-.139 0-.341-.162-.341-.627V6.855c0-.558-.161-.806-.626-.806H9.642c-.348 0-.557.259-.557.504 0 .528.79.650.871 2.138v3.228c0 .707-.128.836-.406.836-.743 0-2.551-2.729-3.623-5.853-.210-.607-.421-.854-.981-.854H2.753c-.626 0-.751.295-.751.620 0 .582.743 3.462 3.461 7.271 1.812 2.601 4.363 4.012 6.687 4.012 1.393 0 1.565-.313 1.565-.852v-1.966c0-.626.133-.751.574-.751.325 0 .883.163 2.184 1.417 1.486 1.486 1.732 2.152 2.567 2.152h2.193c.626 0 .939-.313.759-.930-.197-.615-.907-1.508-1.849-2.567-.512-.604-1.277-1.254-1.51-1.579-.325-.418-.232-.604 0-.976.001 0 2.672-3.764 2.946-5.045z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.934 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.27 1.04-1 2.344-1.488 3.139.694.1 1.4.158 2.118.158 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></div>
+      </div></div>
     </div>
   </footer>
 </div>
